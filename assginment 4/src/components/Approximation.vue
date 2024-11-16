@@ -1,37 +1,35 @@
 <script setup>
 import { ref } from "vue";
 
-const a = ref(0);
-const b = ref(0);
-const angleC = ref(0);
-const sidec = ref(0);
-const CRad = ref(0);
+const n2 = ref(0);
+const result2 = ref(0);
 
-function CosineLaw() {
-    CRad.value = angleC.value * (Math.PI / 180);
-    sidec.value = Math.sqrt(a.value * a.value + b.value * b.value - 2 * a.value * b.value * Math.cos(CRad.value));
+function Approximation() {
+    let piapprox = 0;
+
+    for (let i = 0; i <= n2.value; i++) {
+        piapprox += 4 * (Math.pow(-1, i)) / ((2 * i) + 1);
+    }
+
+    result2.value = piapprox;
 }
 </script>
 
 <template>
-    <div class="cosine">
-        <h1>Cosine Law Calculator</h1>
-        <form @submit.prevent="CosineLaw()">
-            <label>Side A:</label>
-            <input v-model="a" type="number" />
-            <label>Side B:</label>
-            <input v-model="b" type="number" />
-            <label>Angle C:</label>
-            <input v-model="angleC" type="number" />
-            <label>Side C (Result):</label>
-            <input v-model="sidec" type="number" readonly />
+    <div class="Approximation">
+        <h1>Gregory–Leibniz Pi Approximation:</h1>
+        <form @submit.prevent="Approximation()">
+            <label>n Value:</label>
+            <input v-model="n2" type="number" />
+            <label>Pi Approximation (Result):</label>
+            <input v-model="result2" type="number" readonly />
             <input type="submit" value="Calculate" />
         </form>
     </div>
 </template>
 
 <style scoped>
-.cosine {
+.Approximation {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -45,7 +43,7 @@ function CosineLaw() {
     box-sizing: border-box;
 }
 
-.cosine h1 {
+.Approximation h1 {
     font-size: 24px;
     color: #000000;
     margin-bottom: 14px;

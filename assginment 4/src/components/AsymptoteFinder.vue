@@ -3,7 +3,7 @@ import { ref } from "vue";
 
 const m = ref(0);
 const n1 = ref(0);
-const result = ref(0);
+const result1 = ref(0);
 
 function Asymptote() {
     let Result = "";
@@ -60,20 +60,20 @@ else if ((m.value - n1.value) === 10){
     Result ="Decic"
 }
 }
-    result.value = Result;
+    result1.value = Result;
 }
 </script>
 
 <template>
     <div class="Asymptote">
-        <h1>Cosine Law Calculator</h1>
+        <h1>Asymptote Finder</h1>
         <form @submit.prevent="Asymptote()">
             <label>m Value:</label>
             <input v-model="m" type="number" />
             <label>n Value:</label>
             <input v-model="n1" type="number" />
             <label>Asymptote Type (Result):</label>
-            <input v-model="result" type="text" readonly />
+            <input v-model="result1" type="text" readonly />
             <input type="submit" value="Calculate" />
         </form>
     </div>
@@ -84,19 +84,20 @@ else if ((m.value - n1.value) === 10){
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    gap: 10px;
-    padding: 20px;
+    gap: 8px;
+    padding: 14px;
     background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 20%;
+    border-radius: 18px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    width: 18%;
     height: auto;
+    box-sizing: border-box;
 }
 
 .Asymptote h1 {
-    font-size: 32px;
+    font-size: 24px;
     color: #000000;
-    margin-bottom: 20px;
+    margin-bottom: 14px;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
@@ -104,52 +105,56 @@ else if ((m.value - n1.value) === 10){
 }
 
 label {
-    font-size: 16px;
+    font-size: 14px;
     color: #000000;
-    margin-top: 10px;
+    margin-top: 8px;
     display: block;
     text-align: left;
-}
-
-input[type="number"] {
-    width: 100%;
-    padding: 12px;
-    margin-top: 8px;
-    border-radius: 8px;
-    border: 2px solid #000000;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: black;
-    font-size: 18px;
-    text-align: center;
-    outline: none;
-    transition: border-color 0.3s ease;
+    word-wrap: break-word;
 }
 
 input[type="text"] {
     width: 100%;
-    padding: 12px;
-    margin-top: 8px;
-    border-radius: 8px;
-    border: 2px solid #000000;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 6px;
+    border: 1px solid #000000;
     background-color: rgba(255, 255, 255, 0.2);
     color: black;
-    font-size: 18px;
+    font-size: 16px;
     text-align: center;
     outline: none;
     transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 6px;
+    border: 1px solid #000000;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: black;
+    font-size: 16px;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
 }
 
 input[type="submit"] {
     width: 100%;
-    padding: 12px;
-    margin-top: 20px;
+    padding: 10px;
+    margin-top: 14px;
     background-color: #28a745;
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s ease;
+    box-sizing: border-box;
 }
 
 input[type="submit"]:hover {
@@ -167,6 +172,6 @@ input[readonly] {
 }
 
 form {
-    margin-top: 20px;
+    margin-top: 8px;
 }
 </style>
